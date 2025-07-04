@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/Logo.png";
+---
+
+<style lang="scss">
+  @use "../styles/vars";
+  footer {
+    padding: 40px 0;
+  }
+
+  .contact_wrap {
+    background-color: vars.$mipColor;
+    color: vars.$textWhite;
+    padding: 16px 120px;
+    height: fit-content;
+    > div {
+      border-left: vars.$textWhite 3px solid;
+      padding-left: 32px;
+    }
+
+    .contact_text {
+      margin-bottom: 16px;
+      h2 {
+        font-size: 2.4rem;
+        margin-bottom: 16px;
+      }
+
+      p {
+        font-size: 1.6rem;
+      }
+    }
+
+    a {
+      display: block;
+      padding: 8px 16px;
+      width: fit-content;
+      border-radius: 40px;
+      border: 3px solid #fefefe;
+      color: vars.$textWhite;
+    }
+  }
+</style>
+
+<footer>
+  <div class="contact_wrap">
+    <div>
+      <div class="contact_text">
+        <h2>お問い合わせ</h2>
+        <p>ミップへは下記よりお気軽にお問い合わせください。</p>
+      </div>
+      <a href="#">お問い合わせはこちら</a>
+    </div>
+  </div>
+  <div class="site_map">
+    <ul>
+      <li><a href="">トップページ</a></li>
+      <li>
+        <a href="">会社案内</a>
+        <ul>
+          <li><a href="">経営理念</a></li>
+          <li><a href="">会社概要</a></li>
+          <li><a href="">アクセスマップ</a></li>
+          <li><a href="">会社沿革</a></li>
+          <li><a href="">会社案内</a></li>
+        </ul>
+      </li>
+      <li>
+        事業内容
+        <ul>
+          <li><a href="">事業内容</a></li>
+          <li><a href="">事例紹介</a></li>
+          <li><a href="">取引先</a></li>
+          <li><a href="">依頼の進め方</a></li>
+        </ul>
+      </li>
+      <li><a href="">お問い合わせ</a></li>
+    </ul>
+  </div>
+</footer>
