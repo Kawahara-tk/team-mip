@@ -1,0 +1,41 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/Logo.png";
+---
+
+<style lang="scss">
+  header {
+    display: flex;
+    width: calc(100% - 80px);
+    padding: 16px 40px;
+    justify-content: space-between;
+    align-items: center;
+    ul {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      li {
+        list-style: none;
+      }
+
+      a {
+        padding: 4px 8px;
+        background-color: tomato;
+      }
+    }
+  }
+</style>
+
+<header>
+  <h1><Image src={logo} alt="株式会社MIP" /></h1>
+  <div>
+    <ul>
+      <li><a href="">会社案内</a></li>
+      <li><a href="">事業内容</a></li>
+      <li><a href="">Q&A</a></li>
+      <li><a href="">採用情報</a></li>
+    </ul>
+    <a href="">お問い合わせ</a>
+  </div>
+</header>
