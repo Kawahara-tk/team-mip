@@ -12,26 +12,45 @@ import logo from "../assets/Logo.png";
   .contact_wrap {
     background-color: vars.$mipColor;
     color: vars.$textWhite;
+    padding: 16px 120px;
+    height: fit-content;
+    > div {
+      border-left: vars.$textWhite 3px solid;
+      padding-left: 32px;
+    }
 
     .contact_text {
+      margin-bottom: 16px;
       h2 {
         font-size: 2.4rem;
+        margin-bottom: 16px;
       }
 
       p {
         font-size: 1.6rem;
       }
     }
+
+    a {
+      display: block;
+      padding: 8px 16px;
+      width: fit-content;
+      border-radius: 40px;
+      border: 3px solid #fefefe;
+      color: vars.$textWhite;
+    }
   }
 </style>
 
 <footer>
   <div class="contact_wrap">
-    <div class="contact_text">
-      <h2>お問い合わせ</h2>
-      <p>ミップへは下記よりお気軽にお問い合わせください。</p>
+    <div>
+      <div class="contact_text">
+        <h2>お問い合わせ</h2>
+        <p>ミップへは下記よりお気軽にお問い合わせください。</p>
+      </div>
+      <a href="#">お問い合わせはこちら</a>
     </div>
-    <a href="#">お問い合わせはこちら</a>
   </div>
   <div class="site_map">
     <ul>
