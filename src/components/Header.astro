@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import logo from "../assets/Logo.png";
+import { companyName } from "../const";
 ---
 
 <style lang="scss">
@@ -28,7 +29,7 @@ import logo from "../assets/Logo.png";
 </style>
 
 <header>
-  <h1><Image src={logo} alt="株式会社MIP" /></h1>
+  <h1><Image src={logo} alt={companyName} /></h1>
   <div>
     <ul>
       <li><a href="">会社案内</a></li>
