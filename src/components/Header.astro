@@ -2,9 +2,11 @@
 import { Image } from "astro:assets";
 import logo from "../assets/Logo.png";
 import { companyName } from "../const";
+
 ---
 
 <style lang="scss">
+@use"../styles/vars";
   header {
     display: flex;
     width: calc(100% - 80px);
@@ -18,11 +20,17 @@ import { companyName } from "../const";
 
       li {
         list-style: none;
+        
       }
-
+      .contact{
+        background: vars.$mipColor;
+        a{
+          color: vars.$textWhite;
+        }
+      }
       a {
         padding: 4px 8px;
-        background-color: tomato;
+        color: vars.$mipColor;
       }
     }
   }
@@ -36,7 +44,7 @@ import { companyName } from "../const";
       <li><a href="">事業内容</a></li>
       <li><a href="">Q&A</a></li>
       <li><a href="">採用情報</a></li>
+      <li class="contact"><a href="">お問い合わせ</a></li>
     </ul>
-    <a href="">お問い合わせ</a>
   </div>
 </header>
