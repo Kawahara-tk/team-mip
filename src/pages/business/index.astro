@@ -1,7 +1,105 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
+import mainImg from "../../assets/business_main.png";
+import planner from "../../assets/planner.svg";
 ---
 
+<style lang="scss">
+  @use "../../styles/vars";
+
+  .content_wrap {
+    background-color: vars.$backgroundColor;
+  }
+  .mip_possible {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    .planner {
+      width: 240px;
+      height: 210px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+      &::before {
+        content: "";
+        background: url("../../assets/planner.svg") no-repeat;
+        background-size: contain;
+        background-position: center center;
+        display: block;
+        position: absolute;
+        transform: translateY(-100px);
+
+        width: 120px;
+        height: 150px;
+      }
+
+      p {
+        font-size: 2rem;
+        color: vars.$textBlack;
+      }
+    }
+  }
+  .possible_text {
+    font-size: 1.6rem;
+    color: vars.$textBlack;
+    text-align: center;
+    span {
+      color: vars.$mipColor;
+    }
+  }
+</style>
+
 <Layout>
-  <h1>びじねす</h1>
+  <div class="content_wrap">
+    <div>
+      <Image
+        src={mainImg}
+        alt="説明文"
+        widths={[400, 800, 1200, 1600]}
+        sizes="100vw"
+        layout="constrained"
+        style="width: 100%; height: 500px; object-fit: cover;"
+      />
+    </div>
+    <div class="possible">
+      <h2>できること</h2>
+      <p>possible</p>
+      <div>
+        <div class="mip_possible">
+          <div class="planner">
+            <div class="planner_wrap">
+              <p>プランナー</p>
+            </div>
+          </div>
+          <div class="planner">
+            <div class="planner_wrap">
+              <p>プランナー</p>
+            </div>
+          </div>
+          <div class="planner">
+            <div class="planner_wrap">
+              <p>プランナー</p>
+            </div>
+          </div>
+          <div class="planner">
+            <div class="planner_wrap">
+              <p>プランナー</p>
+            </div>
+          </div>
+        </div>
+        <p class="possible_text">
+          お客様の課題解決に必要なITソリューションを構築するために<br />
+          <span
+            >プランナー・デザイナー・システムエンジニア・ネットワーエンジニア</span
+          ><br />
+          が在席し、企画・構築・運用サポートをご提供しています。
+        </p>
+      </div>
+    </div>
+  </div>
 </Layout>
