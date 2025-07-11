@@ -1,7 +1,55 @@
 ---
 import Layout from "../layouts/Layout.astro";
 ---
+<style lang="scss">
+@use"../styles/vars";
+body{
+  height: 2500px;
+  flex-shrink: 0;
+  color: vars.$textWhite;
+  background: linear-gradient(180deg, #51C5F3 0%, rgba(255, 255, 255, 0.35) 100%);
+  background-repeat: no-repeat;
+}
+  .Catchphrase{
+    color: #FFF;
+    text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
+    font-family: "Zen Maru Gothic";
+    font-size: 47px;
+    font-weight: 500;
+    line-height: 150%; 
+    letter-spacing: -0.909px;
+  }
+  .About_us{
+    margin-top: 40%;
+    text-align: center;
+    h2{
+      font-size: 30px;
+      color: vars.$mipColor;
+    }
+    p{
+      margin-top: 30px;
+      font-size: 23px;
+      color: vars.$textBlack;
+    }
+  }
 
+</style>
 <Layout>
-  <h1>なにしてるん</h1>
+  <section>
+    <div class="Catchphrase">
+      <h1>わからないこと、全部いっしょに。<br>Web制作、おまかせください。</h1>
+    </div>
+    <div class="About_us">
+      <h2>わたちたちについて</h2>
+      <p>はじめてWebサイトを作るときの不安を<br>
+        わたしたちは、そんな初めての方でも、気持ちに寄り添って、<br>
+        ひとつひとつ、わかりやすく・やさしくご案内します。<br>
+        あなたの「こうしたい」を大切にしながら、<br>
+        デザインも、構成も、いっしょに考えていく。<br>
+        Web制作がちょっと楽しくなる、そんな時間をつくっていきます。<br>
+        まずは、お話するところから。<br>
+        お気軽にご相談ください。<br>
+      </p>
+    </div>
+  </section>
 </Layout>
