@@ -17,20 +17,31 @@ import { companyName } from "../const";
       display: flex;
       align-items: center;
       gap: 20px;
-
+      font-size: 16px;
       li {
         list-style: none;
         
       }
       .contact{
         background: vars.$mipColor;
+        padding: 10px;
+        border-radius: 18px;
+        text-decoration: none;
         a{
           color: vars.$textWhite;
+          
         }
       }
       a {
         padding: 4px 8px;
         color: vars.$mipColor;
+        background-image: linear-gradient(transparent 95%, #075AA3  95%); // 「transparent」上から下にかけて色を薄くしていく設定
+        background-repeat: no-repeat; // 要素に設定するときに繰り返さないようにする設定
+        background-size:  0 100% ; // 背景画像の幅を0、高さを100にする設定
+        transition: background-size 0.3s ease; // 背景の要素のサイズを変更する時に変化の速度と動き方を指定する設定
+        &:hover{
+          background-size: 100% 100%; // 背景画像のサイズと幅を設定する
+        }
       }
     }
   }
