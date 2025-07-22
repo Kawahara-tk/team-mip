@@ -2,54 +2,95 @@
 import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import mainImg from "../../assets/business_main.png";
-import planner from "../../assets/planner.svg";
 ---
 
 <style lang="scss">
-  @use "../../styles/vars";
+  @use "../../styles/_ress.scss";
+  @use "../../styles/vars" as vars;
+  @use "../../styles/mixin" as mixin;
 
   .content_wrap {
     background-color: vars.$backgroundColor;
+  }
+  .header {
+    & > h2 {
+      text-align: center;
+      line-height: 150%;
+      font-size: 3.6rem;
+      color: vars.$mipColor;
+    }
+    & > p {
+      text-align: center;
+      font-size: 2.4rem;
+      line-height: 150%;
+      color: vars.$textBlack;
+    }
+  }
+  .possible {
+    margin-bottom: 250px;
+    .header {
+      margin-bottom: 100px;
+    }
   }
   .mip_possible {
     display: flex;
     justify-content: center;
     gap: 20px;
     .planner {
-      width: 240px;
-      height: 210px;
-      border-radius: 50%;
-      background-color: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      position: relative;
-      &::before {
-        content: "";
-        background: url("../../assets/planner.svg") no-repeat;
-        background-size: contain;
-        background-position: center center;
-        display: block;
-        position: absolute;
-        transform: translateY(-100px);
-
-        width: 120px;
-        height: 150px;
-      }
-
-      p {
-        font-size: 2rem;
-        color: vars.$textBlack;
-      }
+      @include mixin.business_possible($url: "../../assets/planner.svg");
+      transform: translateY(100px);
+    }
+    .designer {
+      @include mixin.business_possible(
+        $url: "../../assets/designer.svg",
+        $width: 153px
+      );
+    }
+    .system {
+      @include mixin.business_possible($url: "../../assets/systeme.svg");
+    }
+    .network {
+      @include mixin.business_possible(
+        $url: "../../assets/network.svg",
+        $width: 160px
+      );
+      transform: translateY(100px);
     }
   }
   .possible_text {
     font-size: 1.6rem;
     color: vars.$textBlack;
     text-align: center;
+    margin: 10px 0 20px 0;
     span {
       color: vars.$mipColor;
+    }
+  }
+
+  // 取引先
+  .partner {
+    ul {
+      width: 862px;
+      margin: auto;
+      li {
+        h3 {
+          font-size: 2rem;
+          color: vars.$mipColor;
+
+          position: relative;
+          vertical-align: middle;
+
+          &::before {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            width: 2rem;
+            height: 2rem;
+            background-color: #fff312;
+            border-radius: 50%;
+          }
+        }
+      }
     }
   }
 </style>
@@ -66,9 +107,11 @@ import planner from "../../assets/planner.svg";
         style="width: 100%; height: 500px; object-fit: cover;"
       />
     </div>
-    <div class="possible">
-      <h2>できること</h2>
-      <p>possible</p>
+    <section class="possible">
+      <div class="header">
+        <h2>できること</h2>
+        <p>possible</p>
+      </div>
       <div>
         <div class="mip_possible">
           <div class="planner">
@@ -76,19 +119,19 @@ import planner from "../../assets/planner.svg";
               <p>プランナー</p>
             </div>
           </div>
-          <div class="planner">
+          <div class="designer">
             <div class="planner_wrap">
-              <p>プランナー</p>
+              <p>デザイナー</p>
             </div>
           </div>
-          <div class="planner">
+          <div class="system">
             <div class="planner_wrap">
-              <p>プランナー</p>
+              <p>システムエンジニア</p>
             </div>
           </div>
-          <div class="planner">
+          <div class="network">
             <div class="planner_wrap">
-              <p>プランナー</p>
+              <p>ネットワークエンジニア</p>
             </div>
           </div>
         </div>
@@ -100,6 +143,32 @@ import planner from "../../assets/planner.svg";
           が在席し、企画・構築・運用サポートをご提供しています。
         </p>
       </div>
-    </div>
+    </section>
+    <section class="casestady">
+      <div class="header">
+        <h2>事例紹介</h2>
+        <p>Case stady</p>
+      </div>
+      <!-- コンポーネント入れる -->
+    </section>
+    <section class="partner">
+      <div class="header">
+        <h2>取引先</h2>
+        <p>Business partner</p>
+      </div>
+      <ul>
+        <li>
+          <div>
+            <h3>行政・医療法人・福祉法人・学校法人</h3>
+            <p>
+              学校法人穐原学園/一般財団法人神戸在宅医療・介護推進財団/医療法人仁風会　小原病院/社会医療法人生長会　ベルクリニック/医療法人清風会　茨木病院/一般財団法人兵庫県雇用開発協会/公益財団法人兵庫県震災復興記念21世紀研究機構
+            </p>
+          </div>
+        </li>
+        <li>
+          <h3></h3>
+        </li>
+      </ul>
+    </section>
   </div>
 </Layout>

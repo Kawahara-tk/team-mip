@@ -1,0 +1,30 @@
+@use "../styles/vars" as vars;
+
+@mixin business_possible($url,$width:120px,$height:150px) {
+      width: 240px;
+      height: 210px;
+      border-radius: 50%;
+      background-color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      position: relative;
+      &::before {
+        content: "";
+        background: url(#{$url}) no-repeat;
+        background-size: contain;
+        background-position: center center;
+        display: block;
+        position: absolute;
+        transform: translateY(-100px);
+
+        width: $width;
+        height: $height;
+      }
+
+      p {
+        font-size: 2rem;
+        color: vars.$textBlack;
+      }
+}
