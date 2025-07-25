@@ -1,4 +1,5 @@
 ---
+
 import { Image } from "astro:assets";
 import logo from "../assets/Logo.png";
 import { companyName } from "../const";
@@ -30,7 +31,6 @@ import { companyName } from "../const";
         text-decoration: none;
         a{
           color: vars.$textWhite;
-          
         }
       }
       a {
@@ -49,12 +49,12 @@ import { companyName } from "../const";
 </style>
 
 <header>
-  <h1><Image src={logo} alt={companyName} /></h1>
+  <h1><a href="/"><Image src={logo} alt={companyName} /></a></h1>
   <div>
     <ul>
-      <li><a href="">会社案内</a></li>
-      <li><a href="">事業内容</a></li>
-      <li><a href="">Q&A</a></li>
+      <li><a href="/">会社案内</a></li>
+      <li><a href="/business/">事業内容</a></li>
+      <li><a href="/Q&A/">Q&A</a></li>
       <li><a href="">採用情報</a></li>
       <li class="contact"><a href="">お問い合わせ</a></li>
     </ul>
