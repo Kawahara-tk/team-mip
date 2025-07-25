@@ -1,224 +1,241 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from  "astro:assets";
+import { Image } from "astro:assets";
 import Mippy from "../assets/mippy.png";
-
+import topImg from "../assets/toppagemain.png";
 ---
+
 <style lang="scss">
-@use"../styles/vars";
-body{
-  height: 2500px;
-  flex-shrink: 0;
-  color: vars.$textWhite;
-  background: linear-gradient(180deg, #51C5F3 0%, rgba(255, 255, 255, 0.35) 100%);
-  background-repeat: no-repeat;
-}
-  .Catchphrase{
-    color: #FFF;
+  @use "../styles/vars";
+  body {
+    height: 2500px;
+    flex-shrink: 0;
+    color: vars.$textWhite;
+    background: linear-gradient(
+      180deg,
+      #51c5f3 0%,
+      rgba(255, 255, 255, 0.35) 100%
+    );
+    background-repeat: no-repeat;
+  }
+  .Catchphrase {
+    color: #fff;
     text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
     font-family: "Zen Maru Gothic";
     font-size: 47px;
     font-weight: 500;
-    line-height: 150%; 
+    line-height: 150%;
     letter-spacing: -0.909px;
-}
-  .About_us{
-    margin-top: 40%;
+    position: relative;
+
+    h1 {
+      position: absolute;
+      margin: 0;
+      top: 10%;
+      left: 5%;
+    }
+  }
+  .About_us {
+    margin-top: 200px;
     text-align: center;
-    h2{
+    h2 {
       font-size: 30px;
       color: vars.$mipColor;
     }
-    p{
+    p {
       margin-top: 30px;
-      margin-bottom: 60%;
+      margin-bottom: 100px;
       font-size: 23px;
       color: vars.$textBlack;
     }
   }
-.chara_card {
-  margin: 80px auto;
-  padding: 40px 20px;
-  width: 90%;
-  max-width: 400px;
-  background: #fff;
-  border-radius: 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  h3 {
-    font-size: 20px;
-    color: #fcfcfc;
-    background-color: vars.$mipColor;
-    padding: 10px 30px;
-    border-radius: 30px;
-    margin-bottom: 30px;
-    margin-top: -60px;
-  }
-  img {
-    width: 120px;
-    height: auto;
-    margin-bottom: 20px;
-  }
-  .chara_name {
-    font-size: 18px;
-    font-weight: bold;
-    color: vars.$mipColor;
-    margin-bottom: 10px;
-  }
-  .chara_text {
-    font-size: 15px;
-    color: #333;
-    line-height: 1.6;
-  }
-}
-.back{
-  background: #9bdcff;
-}
-.section {
-  background-color: #9bdcff;
-  padding: 80px 20px;
-  text-align: center;
-  position: relative;
-  h2 {
-    font-size: 18px;
-    color: #144e75;
-    margin-bottom: 30px;
-  }
-  .talk-area {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 40px;
-
-    .bubble {
-      background: #fff;
-      border-radius: 40px;
-      padding: 40px 30px;
-      width: 200px;
-      height: 150px;
-      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
-      color: black;
-      
-    }
-  }
-
-  .main-message {
-    background: #fff;
-    border-radius: 20px;
-    padding: 30px;
-    width: 70%;
-    margin: 0 auto 40px;
-    position: relative;
-    font-size: 14px;
-    color: #144e75;
-    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      border: 20px solid transparent;
-      border-top-color: #fff;
-    }
-  }
-
-  .contact-btn {
-    background: #fff;
-    padding: 10px 30px;
-    border-radius: 25px;
-    font-weight: bold;
-    color: #1e73be;
-    margin-top: 20px;
-    display: inline-block;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
-  }
-  .penguin {
-    margin: 30px 0 10px;
-    width: 100px;
-    height: auto;
-  }
-  .steps {
-    background: #d3f1ff;
-    margin-top: 60px;
+  .chara_card {
+    margin: 80px auto;
     padding: 40px 20px;
-    border-radius: 20px;
-    position: relative;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    .step-number {
-      position: absolute;
-      bottom: 10px;
-      right: 20px;
-      font-size: 50px;
-      color: #1e73be;
-      font-weight: bold;
+    width: 90%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    h3 {
+      font-size: 20px;
+      color: #fcfcfc;
+      background-color: vars.$mipColor;
+      padding: 10px 30px;
+      border-radius: 30px;
+      margin-bottom: 30px;
+      margin-top: -60px;
     }
-    .arrow {
-      font-size: 30px;
-      cursor: pointer;
-      color: #1e73be;
+    img {
+      width: 120px;
+      height: auto;
+      margin-bottom: 20px;
     }
-  }
-  .company {
-    margin-top: 100px;
-    .title{
-      color: vars.$mipColor;
-      font-size: 37px;
-    }
-    .memo{
-      color: vars.$mipColor;
+    .chara_name {
       font-size: 18px;
-    }
-    .penguin {
+      font-weight: bold;
+      color: vars.$mipColor;
       margin-bottom: 10px;
     }
-    .company-btn {
+    .chara_text {
+      font-size: 15px;
+      color: #333;
+      line-height: 1.6;
+    }
+  }
+  .back {
+    background: #9bdcff;
+  }
+  .section {
+    background-color: #9bdcff;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    h2 {
+      font-size: 18px;
+      color: #144e75;
+      margin-bottom: 30px;
+    }
+    .talk-area {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 40px;
+
+      .bubble {
+        background: #fff;
+        border-radius: 40px;
+        padding: 40px 30px;
+        width: 200px;
+        height: 150px;
+        box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+        color: black;
+      }
+    }
+
+    .main-message {
       background: #fff;
-      padding: 8px 100px;
+      border-radius: 20px;
+      padding: 30px;
+      width: 70%;
+      margin: 0 auto 40px;
+      position: relative;
+      font-size: 14px;
+      color: #144e75;
+      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 20px solid transparent;
+        border-top-color: #fff;
+      }
+    }
+
+    .contact-btn {
+      background: #fff;
+      padding: 10px 30px;
       border-radius: 25px;
       font-weight: bold;
       color: #1e73be;
+      margin-top: 20px;
       display: inline-block;
-      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-      border-color: #1e73be;
-      margin: 0 auto;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+    }
+    .penguin {
+      margin: 30px 0 10px;
+      width: 100px;
+      height: auto;
+    }
+    .steps {
+      background: #d3f1ff;
+      margin-top: 60px;
+      padding: 40px 20px;
+      border-radius: 20px;
+      position: relative;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      .step-number {
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+        font-size: 50px;
+        color: #1e73be;
+        font-weight: bold;
+      }
+      .arrow {
+        font-size: 30px;
+        cursor: pointer;
+        color: #1e73be;
+      }
+    }
+    .company {
+      margin-top: 100px;
+      .title {
+        color: vars.$mipColor;
+        font-size: 37px;
+      }
+      .memo {
+        color: vars.$mipColor;
+        font-size: 18px;
+      }
+      .penguin {
+        margin-bottom: 10px;
+      }
+      .company-btn {
+        background: #fff;
+        padding: 8px 100px;
+        border-radius: 25px;
+        font-weight: bold;
+        color: #1e73be;
+        display: inline-block;
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        border-color: #1e73be;
+        margin: 0 auto;
+      }
     }
   }
-}
-.case{
-  background-color: #9bdcff;
-}
-.question{
-  border: #144e75;
-  padding: 10px 20px;
-  color: vars.$mipColor;
-  background: #fcfcfc;
-  .question_memo{
+  .case {
     background-color: #9bdcff;
   }
-}
-
-
-
+  .question {
+    border: #144e75;
+    padding: 10px 20px;
+    color: vars.$mipColor;
+    background: #fcfcfc;
+    .question_memo {
+      background-color: #9bdcff;
+    }
+  }
 </style>
 <Layout>
   <section>
     <div class="Catchphrase">
-      <h1>わからないこと、全部いっしょに。<br>Web制作、おまかせください。</h1>
+      <Image
+        src={topImg}
+        alt="メインビジュアル"
+        sizes="100vw"
+        layout="constrained"
+        style="width: 100%; height: 500px; object-fit: cover;"
+      />
+      <h1>わからないこと、全部いっしょに。<br />Web制作、おまかせください。</h1>
     </div>
     <div class="About_us">
       <h2>わたちたちについて</h2>
-      <p>はじめてWebサイトを作るときの不安を<br>
-        わたしたちは、そんな初めての方でも、気持ちに寄り添って、<br>
-        ひとつひとつ、わかりやすく・やさしくご案内します。<br>
-        あなたの「こうしたい」を大切にしながら、<br>
-        デザインも、構成も、いっしょに考えていく。<br>
-        Web制作がちょっと楽しくなる、そんな時間をつくっていきます。<br>
-        まずは、お話するところから。<br>
-        お気軽にご相談ください。<br>
+      <p>
+        はじめてWebサイトを作るときの不安を<br />
+        わたしたちは、そんな初めての方でも、気持ちに寄り添って、<br />
+        ひとつひとつ、わかりやすく・やさしくご案内します。<br />
+        あなたの「こうしたい」を大切にしながら、<br />
+        デザインも、構成も、いっしょに考えていく。<br />
+        Web制作がちょっと楽しくなる、そんな時間をつくっていきます。<br />
+        まずは、お話するところから。<br />
+        お気軽にご相談ください。<br />
       </p>
     </div>
     <div class="chara_card">
@@ -226,59 +243,67 @@ body{
       <Image src={Mippy} alt="ミッぴー" />
       <div class="chara_name">ミッピー</div>
       <p class="chara_text">
-        ぺんぎんは、わたしたちのチームのような存在。<br>
+        ぺんぎんは、わたしたちのチームのような存在。<br />
         みんなで協力し、お客様を大切にする心を表しています。
       </p>
     </div>
     <div class="back">
       <div class="section">
-      <h2>こんなお悩みはありませんか？</h2>
-      <div class="talk-area">
-        <div class="bubble">悩み1</div>
-        <div class="bubble">悩み2</div>
-      </div>
-      <div class="main-message">
-        まずは、お問い合わせからなんでもご相談ください！<br />
-        私たちは、最初のご相談〜納品までサポートして、<br />
-        すべての流れを丁寧にご案内します！
-      </div>
-      <Image src={Mippy} alt="ミッピー" class="penguin" />
-      <div class="contact-btn">お問い合わせはこちら</div>
-      <div class="steps">
-        <p>まずはお気軽にご相談ください<br>「どんなサイトを作りたい」「どんなことを実現したい」<br>そんな想いを共有して、スタッフがご提案を用意します。</p>
-        <div class="step-number">1</div>
-        <div style="margin-top: 20px;">
-          <span class="arrow">⬅</span>
-          <span class="arrow">➡</span>
+        <h2>こんなお悩みはありませんか？</h2>
+        <div class="talk-area">
+          <div class="bubble">悩み1</div>
+          <div class="bubble">悩み2</div>
         </div>
-      </div>
-      <div class="company">
-        <h3 class="title">会社のこと</h3>
-        <div>
-          <p class="memo">
-            お客様に親身に寄り添ったウェブサイトづくりを<br>
-            大切にしています。<br>
-            「こうしたい」を一緒に考えながら、ぴったりの<br>
-            カタチをご提案します。
-          </p>
+        <div class="main-message">
+          まずは、お問い合わせからなんでもご相談ください！<br />
+          私たちは、最初のご相談〜納品までサポートして、<br />
+          すべての流れを丁寧にご案内します！
         </div>
         <Image src={Mippy} alt="ミッピー" class="penguin" />
-        <div class="company-btn">会社のこと</div>
+        <div class="contact-btn">お問い合わせはこちら</div>
+        <div class="steps">
+          <p>
+            まずはお気軽にご相談ください<br
+            />「どんなサイトを作りたい」「どんなことを実現したい」<br
+            />そんな想いを共有して、スタッフがご提案を用意します。
+          </p>
+          <div class="step-number">1</div>
+          <div style="margin-top: 20px;">
+            <span class="arrow">⬅</span>
+            <span class="arrow">➡</span>
+          </div>
+        </div>
+        <div class="company">
+          <h3 class="title">会社のこと</h3>
+          <div>
+            <p class="memo">
+              お客様に親身に寄り添ったウェブサイトづくりを<br />
+              大切にしています。<br />
+              「こうしたい」を一緒に考えながら、ぴったりの<br />
+              カタチをご提案します。
+            </p>
+          </div>
+          <Image src={Mippy} alt="ミッピー" class="penguin" />
+          <div class="company-btn">会社のこと</div>
+        </div>
       </div>
-    </div>
-    <div class="case">
-      <h3 class="case_title">事例紹介</h3>
-      <button>もっと見る</button>
-    </div>
+      <div class="case">
+        <h3 class="case_title">事例紹介</h3>
+        <button>もっと見る</button>
+      </div>
       <div class="question">
         <div class="question_memo">
           <h4><span>Q.</span>どれくらいの期間で完成しますか？</h4>
-          <p><span>A.</span>サイトの規模にもよりますが、一般的な企業サイト（5～10ページ程度）の場合は、ご<br>
-            契約から納品まで約1.5〜2ヶ月程度を目安としています。お急ぎの場合も対応可能です<br>
-            ので、まずはご相談ください！</p>
+          <p>
+            <span>A.</span
+            >サイトの規模にもよりますが、一般的な企業サイト（5～10ページ程度）の場合は、ご<br
+            />
+            契約から納品まで約1.5〜2ヶ月程度を目安としています。お急ぎの場合も対応可能です<br
+            />
+            ので、まずはご相談ください！
+          </p>
         </div>
       </div>
     </div>
-
   </section>
 </Layout>
