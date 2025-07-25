@@ -1,0 +1,44 @@
+<style lang="scss">
+  @use "../styles/vars" as vars;
+  @use "../styles/mixin" as mixin;
+
+  .wrap {
+    width: 100%;
+    .contentwrap {
+      margin: 0 20%;
+      display: flex;
+      gap: 40px;
+      overflow: scroll;
+      .exam-1 {
+        @include mixin.Examples($url: "../assets/recruit.png");
+      }
+      .exam-2 {
+        @include mixin.Examples($url: "../assets/Pharmaceutical.png");
+      }
+    }
+  }
+</style>
+
+<div class="wrap">
+  <div class="contentwrap">
+    <a href="#" class="exam-1">
+      <div class="content">
+        <div class="img"></div>
+        <h3>アミューズメント業</h3>
+        <h2>リクルートサイト改修</h2>
+        <p>
+          IndeedやGoogleしごと検索 （Google for Jobs）を活用して
+          採用活動をしたい
+        </p>
+      </div>
+    </a>
+    <a href="#" class="exam-2">
+      <div class="content">
+        <div class="img"></div>
+        <h3>沢井製薬株式会社様</h3>
+        <h2>頭痛オンライン</h2>
+        <p>頭痛に悩む方のためのWebサイト</p>
+      </div>
+    </a>
+  </div>
+</div>

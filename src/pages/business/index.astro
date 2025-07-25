@@ -1,16 +1,38 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
+import Examples from "../../components/Examples.astro";
 import mainImg from "../../assets/business_main.png";
+import mipexp from "../../assets/mipexp.svg";
+import request from "../../assets/request.svg";
 ---
 
 <style lang="scss">
   @use "../../styles/_ress.scss";
   @use "../../styles/vars" as vars;
   @use "../../styles/mixin" as mixin;
-
   .content_wrap {
     background-color: vars.$backgroundColor;
+  }
+  .mainimg {
+    position: relative;
+
+    .main_text {
+      position: absolute;
+      display: block;
+      top: 40%;
+      left: 15%;
+      h1 {
+        font-size: 6.4rem;
+        line-height: 7rem;
+        color: vars.$mipColor;
+        border-bottom: 1px solid vars.$mipColor;
+      }
+      p {
+        color: vars.$mipColor;
+        font-size: 3.2rem;
+      }
+    }
   }
   .header {
     & > h2 {
@@ -27,7 +49,7 @@ import mainImg from "../../assets/business_main.png";
     }
   }
   .possible {
-    margin-bottom: 250px;
+    margin-bottom: 200px;
     .header {
       margin-bottom: 100px;
     }
@@ -67,6 +89,10 @@ import mainImg from "../../assets/business_main.png";
     }
   }
 
+  .casestady {
+    margin-bottom: 200px;
+  }
+
   // 取引先
   .partner {
     ul {
@@ -86,18 +112,71 @@ import mainImg from "../../assets/business_main.png";
             vertical-align: middle;
             width: 2rem;
             height: 2rem;
-            background-color: #fff312;
+            margin-right: 10px;
+            background-color: vars.$yellow;
             border-radius: 50%;
           }
         }
+        p {
+          font-size: 1.6rem;
+          color: vars.$textBlack;
+        }
       }
     }
+  }
+  .experience {
+    position: relative;
+    background-color: #fdf353;
+    text-align: center;
+    margin-top: 300px;
+    padding: 60px 0;
+
+    h2 {
+      color: #075aa3;
+      font-size: 32px;
+      font-style: normal;
+    }
+    p {
+      color: vars.$textBlack;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 505;
+      span {
+        color: vars.$mipColor;
+      }
+    }
+  }
+
+  .mipexp {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transform: translateY(100px);
+    z-index: 0;
+  }
+  .request {
+    margin-top: 200px;
+    text-align: center;
+    .request_wrap {
+      text-align: center;
+      margin: 100px 0;
+    }
+    a {
+      background-color: vars.$mipColor;
+      padding: 20px 36px;
+      font-size: 2.8rem;
+      border-radius: 20px;
+      text-align: center;
+      color: vars.$textWhite;
+    }
+    padding-bottom: 300px;
   }
 </style>
 
 <Layout>
   <div class="content_wrap">
-    <div>
+    <div class="mainimg">
       <Image
         src={mainImg}
         alt="説明文"
@@ -106,6 +185,10 @@ import mainImg from "../../assets/business_main.png";
         layout="constrained"
         style="width: 100%; height: 500px; object-fit: cover;"
       />
+      <div class="main_text">
+        <h1>事業内容</h1>
+        <p>Business content</p>
+      </div>
     </div>
     <section class="possible">
       <div class="header">
@@ -150,6 +233,7 @@ import mainImg from "../../assets/business_main.png";
         <p>Case stady</p>
       </div>
       <!-- コンポーネント入れる -->
+      <Examples />
     </section>
     <section class="partner">
       <div class="header">
@@ -166,9 +250,35 @@ import mainImg from "../../assets/business_main.png";
           </div>
         </li>
         <li>
-          <h3></h3>
+          <div>
+            <h3>企業</h3>
+            <p>
+              あいおい法律事務所/株式会社エヌ・ティ・ティ・データ関西/株式会社エム・シー・アイ/株式会社大森廻漕店/小野薬品工業株式会社/株式会社Qlife/グリーンコーポレーション株式会社/沢井製薬株式会社/ジェイドルフ製薬株式会社/シュプリンガー・ジャパン株式会社/ストレージサービス株式会社/高松エステート株式会社/田辺三菱製薬株式会社/東亜外業株式会社/日鉄日立システムエンジニアリング株式会社/ニプロ株式会社/日本ベクトン・ディキンソン株式会社/株式会社ファーマインターナショナル/株式会社プロカラーラボ/マルホ株式会社/株式会社メディコン/吉富薬品株式会社/株式会社ルネック/株式会社わかさ生活
+            </p>
+          </div>
         </li>
       </ul>
+    </section>
+    <Image src={mipexp} alt="経験" class="mipexp" />
+    <section class="experience">
+      <h2>”依頼手順に不安を持った経験はありませんか？”</h2>
+      <p>
+        制作をお願いしたいけど、どう進むのか分からず不安…<br />
+        そんなことありませんか？私たちは、最初の<span
+          >ご相談から納品後のサポート</span
+        >まで、<br />
+        すべての流れを丁寧にご案内します！
+      </p>
+    </section>
+    <section class="request">
+      <div class="header">
+        <h2>依頼の進め方</h2>
+        <p>Request procedure</p>
+      </div>
+      <div class="request_wrap">
+        <Image src={request} alt="依頼の進め方" width="1000" />
+      </div>
+      <a href="../contact/">問い合わせはこちら</a>
     </section>
   </div>
 </Layout>
