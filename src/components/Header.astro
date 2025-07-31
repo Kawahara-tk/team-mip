@@ -1,13 +1,11 @@
 ---
-
 import { Image } from "astro:assets";
 import logo from "../assets/Logo.png";
 import { companyName } from "../const";
-
 ---
 
 <style lang="scss">
-@use"../styles/vars";
+  @use "../styles/vars";
   header {
     display: flex;
     width: calc(100% - 80px);
@@ -15,7 +13,7 @@ import { companyName } from "../const";
     justify-content: space-between;
     align-items: center;
     background: #fff;
-    box-shadow: 0 2px 2px 0 rgba(0,0,0,25);
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 25);
     ul {
       display: flex;
       align-items: center;
@@ -24,24 +22,24 @@ import { companyName } from "../const";
       li {
         list-style: none;
       }
-      .contact{
+      .contact {
         background: vars.$mipColor;
         padding: 10px;
         border-radius: 18px;
         text-decoration: none;
-        a{
+        a {
           color: vars.$textWhite;
         }
       }
       a {
         padding: 4px 8px;
         color: vars.$mipColor;
-        background-image: linear-gradient(transparent 95%, #075AA3  95%); 
-        background-repeat: no-repeat; 
-        background-size:  0 100% ;
-        transition: background-size 0.3s ease; 
-        &:hover{
-          background-size: 100% 100%; 
+        background-image: linear-gradient(transparent 95%, #075aa3 95%);
+        background-repeat: no-repeat;
+        background-size: 0 100%;
+        transition: background-size 0.3s ease;
+        &:hover {
+          background-size: 100% 100%;
         }
       }
     }
@@ -49,13 +47,15 @@ import { companyName } from "../const";
 </style>
 
 <header>
-  <h1><a href="/"><Image src={logo} alt={companyName} /></a></h1>
+  <a href="/">
+    <h1><Image src={logo} alt={companyName} /></h1>
+  </a>
   <div>
     <ul>
-      <li><a href="/">会社案内</a></li>
+      <li><a href="/about/">会社案内</a></li>
       <li><a href="/business/">事業内容</a></li>
       <li><a href="/Q&A/">Q&A</a></li>
-      <li><a href="">採用情報</a></li>
+      <li><a href="#">採用情報</a></li>
       <li class="contact"><a href="">お問い合わせ</a></li>
     </ul>
   </div>
