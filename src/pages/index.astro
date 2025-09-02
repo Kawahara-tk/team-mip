@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from  "astro:assets";
 import Mippy from "../assets/mippy.png";
+import Jrei from "../assets/jire.png";
+import Jrei2 from "../assets/jirei2.png";
 
 ---
 <style lang="scss">
@@ -104,7 +106,7 @@ body{
 
   .main-message {
     background: #fff;
-    border-radius: 20px;
+    border-radius: 40px;
     padding: 30px;
     width: 70%;
     margin: 0 auto 40px;
@@ -185,6 +187,10 @@ body{
       box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
       border-color: #1e73be;
       margin: 0 auto;
+      position: relative;
+      right: 30px;
+      bottom: 30px;
+      border: 1px #050500 solid;
     }
   }
 }
@@ -195,13 +201,57 @@ body{
     font-size: 36px;
     color: vars.$mipColor;
   }
-}
+  .introduction{
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+  }
+  .btn{
+    margin-top: 10%;
+    .morebtn{
+      background: #fcfcfc;
+      padding: 10px 30px;
+      border-radius: 30px;
+      border: 1px solid vars.$mipColor;
+      font-size: 20px;
+      color: vars.$mipColor;
+    }
+  }
+  }
 .question{
-  padding: 10px 20px;
-  color: vars.$mipColor;
-  background: #fcfcfc;
-  .question_memo{
-    text-align: center;
+  margin-top: 20%;
+  text-align: center;
+  color: #050500;
+  .qt{
+    font-size: 34px;
+    color: vars.$mipColor;
+  }
+    .qa-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 25px;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    line-height: 1.8;
+    h4{
+      margin: 0 0 10px;
+      font-size: 18px;
+      font-weight: bold;
+      span{
+        color: vars.$mipColor;
+        margin-right: 8px;
+      }
+    }
+    p{
+      margin: 0;
+      font-size: 16px;
+      span{
+        color: #e60000; /* Aの赤 */
+        font-weight: bold;
+        margin-right: 8px;
+      }
+    }
   }
 }
 
@@ -272,15 +322,27 @@ body{
     </div>
     <div class="case">
       <h3 class="case_title">事例紹介</h3>
-      <button>もっと見る</button>
+      <div class="introduction">
+        <Image src={Jrei} alt="事例紹介" />
+        <Image src={Jrei2} alt="事例紹介2" />
+        <Image src={Jrei} alt="事例紹介" />
+        <Image src={Jrei2} alt="事例紹介2" />
+      </div>
+      <div  class="btn">
+        <a href="#" class="morebtn">もっと見る</a>
+      </div>
     </div>
       <div class="question">
-        <div class="question_memo">
-          <h4><span>Q.</span>どれくらいの期間で完成しますか？</h4>
-          <p><span>A.</span>サイトの規模にもよりますが、一般的な企業サイト（5～10ページ程度）の場合は、ご<br>
-            契約から納品まで約1.5〜2ヶ月程度を目安としています。お急ぎの場合も対応可能です<br>
-            ので、まずはご相談ください！</p>
-        </div>
+        <h2 class="qt">よくある質問</h2>
+          <div class="qa-card">
+            <h4><span>Q.</span>どれくらいの期間で完成しますか？</h4>
+            <p>
+              <span>A.</span>
+              サイトの規模にもよりますが、一般的な企業サイト（5～10ページ程度）の場合は、
+              ご契約から納品まで約1.5〜2ヶ月程度を目安としています。<br>
+              お急ぎの場合も対応可能ですので、まずはご相談ください！
+            </p>
+          </div>
       </div>
     </div>
 
