@@ -91,7 +91,7 @@ body{
     justify-content: center;
     gap: 40px;
     margin-bottom: 40px;
-
+    text-align: center;
     .bubble {
       background: #fff;
       border-radius: 40px;
@@ -100,7 +100,12 @@ body{
       height: 150px;
       box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
       color: black;
-      
+      .senmon{
+        font-size: 20px;
+      }
+      .senmon2{
+        font-size: 20px;
+      }
     }
   }
 
@@ -222,6 +227,11 @@ body{
   margin-top: 20%;
   text-align: center;
   color: #050500;
+  .flex{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
   .qt{
     font-size: 34px;
     color: vars.$mipColor;
@@ -252,6 +262,85 @@ body{
         margin-right: 8px;
       }
     }
+  }
+}
+    .qa-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px 25px;
+    max-width: 700px;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    line-height: 1.8;
+    margin-top: 120px;
+    h4{
+      margin: 0 0 10px;
+      font-size: 18px;
+      font-weight: bold;
+      span{
+        color: vars.$mipColor;
+        margin-right: 8px;
+      }
+    }
+    p{
+      margin: 0;
+      font-size: 16px;
+      span{
+        color: #e60000; /* Aの赤 */
+        font-weight: bold;
+        margin-right: 8px;
+      }
+    }
+  }
+.notice_wrap {
+  margin: 0;
+  padding: 60px 20px;
+  background: #9bdcff; /* 背景を画像通り水色に */
+
+  .notice-card {
+    background: #fff;
+    border-radius: 12px;
+    padding: 50px 30px 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    h2 {
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0057b7;
+      color: #fff;
+      padding: 12px 40px;
+      border-radius: 8px;
+      font-size: 20px;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+
+  .notice-item {
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin-bottom: 20px;
+    background: #fff;
+  }
+
+  .notice-date {
+    font-size: 14px;
+    color: #0057b7;
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .notice-text {
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
   }
 }
 
@@ -288,8 +377,17 @@ body{
       <div class="section">
       <h2>こんなお悩みはありませんか？</h2>
       <div class="talk-area">
-        <div class="bubble">悩み1</div>
-        <div class="bubble">悩み2</div>
+        <div class="bubble">悩み1
+          <div class="senmon">
+            <p>専門用語ばかりでわかりにくそう?</p>
+          </div>
+        </div>
+        
+        <div class="bubble">悩み2
+          <div class="senmon2">
+            <p>何から始めたら良いんだろう?</p>
+          </div>
+        </div>
       </div>
       <div class="main-message">
         まずは、お問い合わせからなんでもご相談ください！<br />
@@ -334,7 +432,8 @@ body{
     </div>
       <div class="question">
         <h2 class="qt">よくある質問</h2>
-          <div class="qa-card">
+        <div class="flex">
+                    <div class="qa-card">
             <h4><span>Q.</span>どれくらいの期間で完成しますか？</h4>
             <p>
               <span>A.</span>
@@ -343,8 +442,48 @@ body{
               お急ぎの場合も対応可能ですので、まずはご相談ください！
             </p>
           </div>
+            <div class="qa-card">
+              <h4><span>Q.</span>どれくらいの期間で完成しますか？</h4>
+              <p>
+                <span>A.</span>
+                サイトの規模にもよりますが、一般的な企業サイト（5～10ページ程度）の場合は、
+                ご契約から納品まで約1.5〜2ヶ月程度を目安としています。<br>
+                お急ぎの場合も対応可能ですので、まずはご相談ください！
+              </p>
+          </div>
+            <div class="qa-card">
+              <h4><span>Q.</span>どれくらいの期間で完成しますか？</h4>
+              <p>
+                <span>A.</span>
+                サイトの規模にもよりますが、一般的な企業サイト（5～10ページ程度）の場合は、
+                ご契約から納品まで約1.5〜2ヶ月程度を目安としています。<br>
+                お急ぎの場合も対応可能ですので、まずはご相談ください！
+              </p>
+          </div>
+        </div>
       </div>
-    </div>
-
+        <div class="notice_wrap">
+          <div class="notice-card">
+            <h2>お知らせ</h2>
+            <div class="notice-item">
+              <span class="notice-date">2025/4/24</span>
+              <p class="notice-text">
+                ゴールデンウィーク休暇は4月26日(土)〜5月6日(水)を休業とさせていただきます。
+              </p>
+            </div>
+            <div class="notice-item">
+              <span class="notice-date">2025/2/27</span>
+              <p class="notice-text">
+                マーケティングオートメーション（MA）ツール「SATORI」のパートナー企業になりました
+              </p>
+            </div>
+            <div class="notice-item">
+              <span class="notice-date">2025/2/27</span>
+              <p class="notice-text">
+                マーケティングオートメーション（MA）ツール「SATORI」のパートナー企業になりました
+              </p>
+            </div>
+          </div>
+        </div>
   </section>
 </Layout>
