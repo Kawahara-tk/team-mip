@@ -1,62 +1,182 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
+import Examples from "../../components/Examples.astro";
 import mainImg from "../../assets/business_main.png";
-import planner from "../../assets/planner.svg";
+import mipexp from "../../assets/mipexp.svg";
+import request from "../../assets/request.svg";
 ---
 
 <style lang="scss">
-  @use "../../styles/vars";
-
+  @use "../../styles/_ress.scss";
+  @use "../../styles/vars" as vars;
+  @use "../../styles/mixin" as mixin;
   .content_wrap {
     background-color: vars.$backgroundColor;
+  }
+  .mainimg {
+    position: relative;
+
+    .main_text {
+      position: absolute;
+      display: block;
+      top: 40%;
+      left: 15%;
+      h1 {
+        font-size: 6.4rem;
+        line-height: 7rem;
+        color: vars.$mipColor;
+        border-bottom: 1px solid vars.$mipColor;
+      }
+      p {
+        color: vars.$mipColor;
+        font-size: 3.2rem;
+      }
+    }
+  }
+  .header {
+    & > h2 {
+      text-align: center;
+      line-height: 150%;
+      font-size: 3.6rem;
+      color: vars.$mipColor;
+    }
+    & > p {
+      text-align: center;
+      font-size: 2.4rem;
+      line-height: 150%;
+      color: vars.$textBlack;
+    }
+  }
+  .possible {
+    margin-bottom: 200px;
+    .header {
+      margin-bottom: 100px;
+    }
   }
   .mip_possible {
     display: flex;
     justify-content: center;
     gap: 20px;
     .planner {
-      width: 240px;
-      height: 210px;
-      border-radius: 50%;
-      background-color: #ffffff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      position: relative;
-      &::before {
-        content: "";
-        background: url("../../assets/planner.svg") no-repeat;
-        background-size: contain;
-        background-position: center center;
-        display: block;
-        position: absolute;
-        transform: translateY(-100px);
-
-        width: 120px;
-        height: 150px;
-      }
-
-      p {
-        font-size: 2rem;
-        color: vars.$textBlack;
-      }
+      @include mixin.business_possible($url: "../../assets/planner.svg");
+      transform: translateY(100px);
+    }
+    .designer {
+      @include mixin.business_possible(
+        $url: "../../assets/designer.svg",
+        $width: 153px
+      );
+    }
+    .system {
+      @include mixin.business_possible($url: "../../assets/systeme.svg");
+    }
+    .network {
+      @include mixin.business_possible(
+        $url: "../../assets/network.svg",
+        $width: 160px
+      );
+      transform: translateY(100px);
     }
   }
   .possible_text {
     font-size: 1.6rem;
     color: vars.$textBlack;
     text-align: center;
+    margin: 10px 0 20px 0;
     span {
       color: vars.$mipColor;
     }
+  }
+
+  .casestady {
+    margin-bottom: 200px;
+  }
+
+  // 取引先
+  .partner {
+    ul {
+      width: 862px;
+      margin: auto;
+      li {
+        h3 {
+          font-size: 2rem;
+          color: vars.$mipColor;
+
+          position: relative;
+          vertical-align: middle;
+
+          &::before {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            width: 2rem;
+            height: 2rem;
+            margin-right: 10px;
+            background-color: vars.$yellow;
+            border-radius: 50%;
+          }
+        }
+        p {
+          font-size: 1.6rem;
+          color: vars.$textBlack;
+        }
+      }
+    }
+  }
+  .experience {
+    position: relative;
+    background-color: #fdf353;
+    text-align: center;
+    margin-top: 300px;
+    padding: 60px 0;
+
+    h2 {
+      color: #075aa3;
+      font-size: 32px;
+      font-style: normal;
+    }
+    p {
+      color: vars.$textBlack;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 505;
+      span {
+        color: vars.$mipColor;
+      }
+    }
+  }
+
+  .mipexp {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transform: translateY(100px);
+    z-index: 0;
+  }
+  .request {
+    margin-top: 200px;
+    text-align: center;
+    .request_wrap {
+      text-align: center;
+      margin: 100px 0;
+    }
+    a {
+      background-color: vars.$mipColor;
+      padding: 20px 36px;
+      font-size: 2.8rem;
+      border-radius: 20px;
+      text-align: center;
+      color: vars.$textWhite;
+    }
+    padding-bottom: 300px;
   }
 </style>
 
 <Layout>
   <div class="content_wrap">
-    <div>
+    <div class="mainimg">
       <Image
         src={mainImg}
         alt="説明文"
@@ -65,10 +185,16 @@ import planner from "../../assets/planner.svg";
         layout="constrained"
         style="width: 100%; height: 500px; object-fit: cover;"
       />
+      <div class="main_text">
+        <h1>事業内容</h1>
+        <p>Business content</p>
+      </div>
     </div>
-    <div class="possible">
-      <h2>できること</h2>
-      <p>possible</p>
+    <section class="possible">
+      <div class="header">
+        <h2>できること</h2>
+        <p>possible</p>
+      </div>
       <div>
         <div class="mip_possible">
           <div class="planner">
@@ -76,19 +202,19 @@ import planner from "../../assets/planner.svg";
               <p>プランナー</p>
             </div>
           </div>
-          <div class="planner">
+          <div class="designer">
             <div class="planner_wrap">
-              <p>プランナー</p>
+              <p>デザイナー</p>
             </div>
           </div>
-          <div class="planner">
+          <div class="system">
             <div class="planner_wrap">
-              <p>プランナー</p>
+              <p>システムエンジニア</p>
             </div>
           </div>
-          <div class="planner">
+          <div class="network">
             <div class="planner_wrap">
-              <p>プランナー</p>
+              <p>ネットワークエンジニア</p>
             </div>
           </div>
         </div>
@@ -100,6 +226,59 @@ import planner from "../../assets/planner.svg";
           が在席し、企画・構築・運用サポートをご提供しています。
         </p>
       </div>
-    </div>
+    </section>
+    <section class="casestady">
+      <div class="header">
+        <h2>事例紹介</h2>
+        <p>Case stady</p>
+      </div>
+      <!-- コンポーネント入れる -->
+      <Examples />
+    </section>
+    <section class="partner">
+      <div class="header">
+        <h2>取引先</h2>
+        <p>Business partner</p>
+      </div>
+      <ul>
+        <li>
+          <div>
+            <h3>行政・医療法人・福祉法人・学校法人</h3>
+            <p>
+              学校法人穐原学園/一般財団法人神戸在宅医療・介護推進財団/医療法人仁風会　小原病院/社会医療法人生長会　ベルクリニック/医療法人清風会　茨木病院/一般財団法人兵庫県雇用開発協会/公益財団法人兵庫県震災復興記念21世紀研究機構
+            </p>
+          </div>
+        </li>
+        <li>
+          <div>
+            <h3>企業</h3>
+            <p>
+              あいおい法律事務所/株式会社エヌ・ティ・ティ・データ関西/株式会社エム・シー・アイ/株式会社大森廻漕店/小野薬品工業株式会社/株式会社Qlife/グリーンコーポレーション株式会社/沢井製薬株式会社/ジェイドルフ製薬株式会社/シュプリンガー・ジャパン株式会社/ストレージサービス株式会社/高松エステート株式会社/田辺三菱製薬株式会社/東亜外業株式会社/日鉄日立システムエンジニアリング株式会社/ニプロ株式会社/日本ベクトン・ディキンソン株式会社/株式会社ファーマインターナショナル/株式会社プロカラーラボ/マルホ株式会社/株式会社メディコン/吉富薬品株式会社/株式会社ルネック/株式会社わかさ生活
+            </p>
+          </div>
+        </li>
+      </ul>
+    </section>
+    <Image src={mipexp} alt="経験" class="mipexp" />
+    <section class="experience">
+      <h2>”依頼手順に不安を持った経験はありませんか？”</h2>
+      <p>
+        制作をお願いしたいけど、どう進むのか分からず不安…<br />
+        そんなことありませんか？私たちは、最初の<span
+          >ご相談から納品後のサポート</span
+        >まで、<br />
+        すべての流れを丁寧にご案内します！
+      </p>
+    </section>
+    <section class="request">
+      <div class="header">
+        <h2>依頼の進め方</h2>
+        <p>Request procedure</p>
+      </div>
+      <div class="request_wrap">
+        <Image src={request} alt="依頼の進め方" width="1000" />
+      </div>
+      <a href="../contact/">問い合わせはこちら</a>
+    </section>
   </div>
 </Layout>

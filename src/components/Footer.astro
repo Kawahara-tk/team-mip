@@ -5,7 +5,7 @@ import { companyName } from "../const";
 ---
 
 <style lang="scss">
-  @use "../styles/vars";
+  @use "../styles/vars" as vars;
   $textGrey: #d9d9d9;
   footer {
     padding: 0 0 40px 0;
@@ -69,6 +69,9 @@ import { companyName } from "../const";
 
       ul li a {
         color: $textGrey;
+        &:hover {
+          color: vars.$textBlack;
+        }
       }
     }
 
