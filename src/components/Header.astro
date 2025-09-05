@@ -14,6 +14,7 @@ import { companyName } from "../const";
     align-items: center;
     background: #fff;
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2);
+
     ul {
       display: flex;
       align-items: center;
@@ -47,13 +48,15 @@ import { companyName } from "../const";
 </style>
 
 <header>
-  <h1><a href="/"><Image src={logo} alt={companyName} /></a></h1>
+  <a href="/">
+    <h1><Image src={logo} alt={companyName} /></h1>
+  </a>
   <div>
     <ul>
-      <li><a href="/">会社案内</a></li>
+      <li><a href="/about/">会社案内</a></li>
       <li><a href="/business/">事業内容</a></li>
       <li><a href="/Q&A/">Q&A</a></li>
-      <li><a href="">採用情報</a></li>
+      <li><a href="#">採用情報</a></li>
       <li class="contact"><a href="">お問い合わせ</a></li>
     </ul>
   </div>

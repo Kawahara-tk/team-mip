@@ -1,0 +1,167 @@
+
+  @use "_ress.scss";
+  @use "vars" as vars;
+  @use "mixin" as mixin;
+  .content_wrap {
+    background-color: vars.$backgroundColor;
+  }
+  .mainimg {
+    position: relative;
+
+    .main_text {
+      position: absolute;
+      display: block;
+      top: 40%;
+      left: 15%;
+      h1 {
+        font-size: 6.4rem;
+        line-height: 7rem;
+        color: vars.$mipColor;
+        border-bottom: 1px solid vars.$mipColor;
+      }
+      p {
+        color: vars.$mipColor;
+        font-size: 3.2rem;
+      }
+    }
+  }
+  .header {
+    margin-bottom: 20px;
+    & > h2 {
+      text-align: center;
+      line-height: 150%;
+      font-size: 3.6rem;
+      color: vars.$mipColor;
+    }
+    & > p {
+      text-align: center;
+      font-size: 2.4rem;
+      line-height: 150%;
+      color: vars.$textBlack;
+    }
+  }
+  .possible {
+    margin-top: 40px;
+    margin-bottom: 200px;
+    .header {
+      margin-bottom: 100px;
+    }
+  }
+  .mip_possible {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    .planner {
+      @include mixin.business_possible($url: "../assets/planner.svg");
+      transform: translateY(100px);
+    }
+    .designer {
+      @include mixin.business_possible(
+        $url: "../assets/designer.svg",
+        $width: 153px
+      );
+    }
+    .system {
+      @include mixin.business_possible($url: "../assets/systeme.svg");
+    }
+    .network {
+      @include mixin.business_possible(
+        $url: "../assets/network.svg",
+        $width: 160px
+      );
+      transform: translateY(100px);
+    }
+  }
+  .possible_text {
+    font-size: 1.6rem;
+    color: vars.$textBlack;
+    text-align: center;
+    margin: 10px 0 20px 0;
+    span {
+      color: vars.$mipColor;
+    }
+  }
+
+  .casestady {
+    margin-bottom: 200px;
+  }
+
+  // 取引先
+  .partner {
+    ul {
+      width: 862px;
+      margin: auto;
+      li {
+        h3 {
+          font-size: 2rem;
+          color: vars.$mipColor;
+
+          position: relative;
+          vertical-align: middle;
+
+          &::before {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            width: 2rem;
+            height: 2rem;
+            margin-right: 10px;
+            background-color: vars.$yellow;
+            border-radius: 50%;
+          }
+        }
+        p {
+          font-size: 1.6rem;
+          color: vars.$textBlack;
+        }
+      }
+    }
+  }
+  .experience {
+    position: relative;
+    background-color: #fdf353;
+    text-align: center;
+    margin-top: 300px;
+    padding: 60px 0;
+
+    h2 {
+      color: #075aa3;
+      font-size: 32px;
+      font-style: normal;
+    }
+    p {
+      color: vars.$textBlack;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 505;
+      span {
+        color: vars.$mipColor;
+      }
+    }
+  }
+
+  .mipexp {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    transform: translateY(100px);
+    z-index: 0;
+  }
+  .request {
+    margin-top: 200px;
+    text-align: center;
+    .request_wrap {
+      text-align: center;
+      margin: 100px 0;
+    }
+    a {
+      background-color: vars.$mipColor;
+      padding: 20px 36px;
+      font-size: 2.8rem;
+      border-radius: 20px;
+      text-align: center;
+      color: vars.$textWhite;
+    }
+    padding-bottom: 300px;
+  }
