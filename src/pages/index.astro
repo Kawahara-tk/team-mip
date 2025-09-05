@@ -1,367 +1,373 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Image } from  "astro:assets";
+import { Image } from "astro:assets";
 import Mippy from "../assets/mippy.png";
+import Examples from "../components/Examples.astro";
 import Jrei from "../assets/jire.png";
 import Jrei2 from "../assets/jirei2.png";
-
 ---
+
 <style lang="scss">
-@use"../styles/vars";
-body{
-  height: 2500px;
-  flex-shrink: 0;
-  color: vars.$textWhite;
-  background: linear-gradient(180deg, #51C5F3 0%, rgba(255, 255, 255, 0.35) 100%);
-  background-repeat: no-repeat;
-}
-  .Catchphrase{
-    color: #FFF;
+  @use "../styles/vars";
+  body {
+    height: 2500px;
+    flex-shrink: 0;
+    color: vars.$textWhite;
+    background: linear-gradient(
+      180deg,
+      #51c5f3 0%,
+      rgba(255, 255, 255, 0.35) 100%
+    );
+    background-repeat: no-repeat;
+  }
+  .Catchphrase {
+    color: #fff;
     text-shadow: 0px 1px 0px rgba(0, 0, 0, 0.25);
     font-family: "Zen Maru Gothic";
     font-size: 47px;
     font-weight: 500;
-    line-height: 150%; 
+    line-height: 150%;
     letter-spacing: -0.909px;
-}
-  .About_us{
+  }
+  .About_us {
     margin-top: 40%;
     text-align: center;
-    h2{
+    h2 {
       font-size: 30px;
       color: vars.$mipColor;
     }
-    p{
+    p {
       margin-top: 30px;
       margin-bottom: 60%;
       font-size: 23px;
       color: vars.$textBlack;
     }
   }
-.chara_card {
-  margin: 80px auto;
-  padding: 40px 20px;
-  width: 90%;
-  max-width: 400px;
-  background: #fff;
-  border-radius: 30px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  h3 {
-    font-size: 20px;
-    color: #fcfcfc;
-    background-color: vars.$mipColor;
-    padding: 10px 30px;
-    border-radius: 30px;
-    margin-bottom: 30px;
-    margin-top: -60px;
-  }
-  img {
-    width: 120px;
-    height: auto;
-    margin-bottom: 20px;
-  }
-  .chara_name {
-    font-size: 18px;
-    font-weight: bold;
-    color: vars.$mipColor;
-    margin-bottom: 10px;
-  }
-  .chara_text {
-    font-size: 15px;
-    color: #333;
-    line-height: 1.6;
-  }
-}
-.back{
-  background: #9bdcff;
-}
-.section {
-  background-color: #9bdcff;
-  padding: 80px 20px;
-  text-align: center;
-  position: relative;
-  h2 {
-    font-size: 18px;
-    color: #144e75;
-    margin-bottom: 30px;
-  }
-  .talk-area {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-bottom: 40px;
-    text-align: center;
-    .bubble {
-      background: #fff;
-      border-radius: 40px;
-      padding: 40px 30px;
-      width: 200px;
-      height: 150px;
-      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
-      color: black;
-      .senmon{
-        font-size: 20px;
-      }
-      .senmon2{
-        font-size: 20px;
-      }
-    }
-  }
-
-  .main-message {
-    background: #fff;
-    border-radius: 40px;
-    padding: 30px;
-    width: 70%;
-    margin: 0 auto 40px;
-    position: relative;
-    font-size: 14px;
-    color: #144e75;
-    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      border: 20px solid transparent;
-      border-top-color: #fff;
-    }
-  }
-
-  .contact-btn {
-    background: #fff;
-    padding: 10px 30px;
-    border-radius: 25px;
-    font-weight: bold;
-    color: #1e73be;
-    margin-top: 20px;
-    display: inline-block;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
-  }
-  .penguin {
-    margin: 30px 0 10px;
-    width: 100px;
-    height: auto;
-  }
-  .steps {
-    background: #d3f1ff;
-    margin-top: 60px;
+  .chara_card {
+    margin: 80px auto;
     padding: 40px 20px;
-    border-radius: 20px;
-    position: relative;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    .step-number {
-      position: absolute;
-      bottom: 10px;
-      right: 20px;
-      font-size: 50px;
-      color: #1e73be;
-      font-weight: bold;
+    width: 90%;
+    max-width: 400px;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    h3 {
+      font-size: 20px;
+      color: #fcfcfc;
+      background-color: vars.$mipColor;
+      padding: 10px 30px;
+      border-radius: 30px;
+      margin-bottom: 30px;
+      margin-top: -60px;
     }
-    .arrow {
-      font-size: 30px;
-      cursor: pointer;
-      color: #1e73be;
+    img {
+      width: 120px;
+      height: auto;
+      margin-bottom: 20px;
     }
-  }
-  .company {
-    margin-top: 100px;
-    .title{
-      color: vars.$mipColor;
-      font-size: 37px;
-    }
-    .memo{
-      color: vars.$mipColor;
+    .chara_name {
       font-size: 18px;
-    }
-    .penguin {
+      font-weight: bold;
+      color: vars.$mipColor;
       margin-bottom: 10px;
     }
-    .company-btn {
+    .chara_text {
+      font-size: 15px;
+      color: #333;
+      line-height: 1.6;
+    }
+  }
+  .back {
+    background: #9bdcff;
+  }
+  .section {
+    background-color: #9bdcff;
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    h2 {
+      font-size: 18px;
+      color: #144e75;
+      margin-bottom: 30px;
+    }
+    .talk-area {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 40px;
+      text-align: center;
+      .bubble {
+        background: #fff;
+        border-radius: 40px;
+        padding: 20px 30px;
+        width: 200px;
+        // height: 150px;
+        box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+        color: black;
+        h3 {
+          font-size: 24px;
+        }
+        .senmon {
+          font-size: 20px;
+        }
+        .senmon2 {
+          font-size: 20px;
+        }
+      }
+    }
+
+    .main-message {
       background: #fff;
-      padding: 8px 100px;
+      border-radius: 40px;
+      padding: 30px;
+      width: 70%;
+      margin: 0 auto 40px;
+      position: relative;
+      font-size: 20px;
+      color: #144e75;
+      box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        border: 20px solid transparent;
+        border-top-color: #fff;
+      }
+    }
+
+    .contact-btn {
+      background: #fff;
+      padding: 10px 30px;
       border-radius: 25px;
       font-weight: bold;
       color: #1e73be;
+      margin-top: 20px;
       display: inline-block;
-      box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
-      border-color: #1e73be;
-      margin: 0 auto;
+      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.15);
+    }
+    .penguin {
+      margin: 30px 0 10px;
+      width: 100px;
+      height: auto;
+    }
+    .steps {
+      background: #d3f1ff;
+      margin-top: 60px;
+      padding: 40px 20px;
+      border-radius: 20px;
       position: relative;
-      right: 30px;
-      bottom: 30px;
-      border: 1px #050500 solid;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      .step-number {
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+        font-size: 50px;
+        color: #1e73be;
+        font-weight: bold;
+      }
+      .arrow {
+        font-size: 30px;
+        cursor: pointer;
+        color: #1e73be;
+      }
+    }
+    .company {
+      margin-top: 100px;
+      .title {
+        color: vars.$mipColor;
+        font-size: 37px;
+      }
+      .memo {
+        color: vars.$mipColor;
+        font-size: 18px;
+      }
+      .penguin {
+        margin-bottom: 10px;
+      }
+      .company-btn {
+        background: #fff;
+        padding: 8px 100px;
+        border-radius: 25px;
+        font-weight: bold;
+        color: #1e73be;
+        display: inline-block;
+        box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        border-color: #1e73be;
+        margin: 0 auto;
+        position: relative;
+        right: 30px;
+        bottom: 30px;
+        border: 1px #050500 solid;
+      }
     }
   }
-}
-.case{
-  background-color: #9bdcff;
-  text-align: center;
-  .case_title{
-    font-size: 36px;
-    color: vars.$mipColor;
-  }
-  .introduction{
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-  }
-  .btn{
-    margin-top: 10%;
-    .morebtn{
-      background: #fcfcfc;
-      padding: 10px 30px;
-      border-radius: 30px;
-      border: 1px solid vars.$mipColor;
-      font-size: 20px;
+  .case {
+    background-color: #9bdcff;
+    text-align: center;
+    .case_title {
+      font-size: 36px;
       color: vars.$mipColor;
     }
-  }
-  }
-.question{
-  margin-top: 20%;
-  text-align: center;
-  color: #050500;
-  .flex{
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-  .qt{
-    font-size: 34px;
-    color: vars.$mipColor;
-  }
-    .qa-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 20px 25px;
-    max-width: 700px;
-    margin: 0 auto;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    line-height: 1.8;
-    h4{
-      margin: 0 0 10px;
-      font-size: 18px;
-      font-weight: bold;
-      span{
+    .introduction {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+    .btn {
+      margin-top: 10%;
+      .morebtn {
+        background: #fcfcfc;
+        padding: 10px 30px;
+        border-radius: 30px;
+        border: 1px solid vars.$mipColor;
+        font-size: 20px;
         color: vars.$mipColor;
-        margin-right: 8px;
-      }
-    }
-    p{
-      margin: 0;
-      font-size: 16px;
-      span{
-        color: #e60000; /* Aの赤 */
-        font-weight: bold;
-        margin-right: 8px;
       }
     }
   }
-}
+  .question {
+    margin-top: 20%;
+    text-align: center;
+    color: #050500;
+    .flex {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    .qt {
+      font-size: 34px;
+      color: vars.$mipColor;
+    }
     .qa-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px 25px;
+      max-width: 700px;
+      margin: 0 auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      line-height: 1.8;
+      h4 {
+        margin: 0 0 10px;
+        font-size: 18px;
+        font-weight: bold;
+        span {
+          color: vars.$mipColor;
+          margin-right: 8px;
+        }
+      }
+      p {
+        margin: 0;
+        font-size: 16px;
+        span {
+          color: #e60000; /* Aの赤 */
+          font-weight: bold;
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+  .qa-card {
     background: #fff;
     border-radius: 12px;
     padding: 20px 25px;
     max-width: 700px;
     margin: 0 auto;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     line-height: 1.8;
     margin-top: 120px;
-    h4{
+    h4 {
       margin: 0 0 10px;
       font-size: 18px;
       font-weight: bold;
-      span{
+      span {
         color: vars.$mipColor;
         margin-right: 8px;
       }
     }
-    p{
+    p {
       margin: 0;
       font-size: 16px;
-      span{
+      span {
         color: #e60000; /* Aの赤 */
         font-weight: bold;
         margin-right: 8px;
       }
     }
   }
-.notice_wrap {
-  margin: 0;
-  padding: 60px 20px;
-  background: #9bdcff; /* 背景を画像通り水色に */
+  .notice_wrap {
+    margin: 0;
+    padding: 60px 20px;
+    background: #9bdcff; /* 背景を画像通り水色に */
 
-  .notice-card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 50px 30px 30px;
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    .notice-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 50px 30px 30px;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 
-    h2 {
-      position: absolute;
-      top: -25px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: #0057b7;
-      color: #fff;
-      padding: 12px 40px;
-      border-radius: 8px;
-      font-size: 20px;
+      h2 {
+        position: absolute;
+        top: -25px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #0057b7;
+        color: #fff;
+        padding: 12px 40px;
+        border-radius: 8px;
+        font-size: 20px;
+        font-weight: bold;
+        margin: 0;
+      }
+    }
+
+    .notice-item {
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      background: #fff;
+    }
+
+    .notice-date {
+      font-size: 14px;
+      color: #0057b7;
       font-weight: bold;
-      margin: 0;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .notice-text {
+      font-size: 16px;
+      color: #333;
+      line-height: 1.6;
     }
   }
-
-  .notice-item {
-    border: 1px solid #ccc;
-    border-radius: 12px;
-    padding: 15px 20px;
-    margin-bottom: 20px;
-    background: #fff;
-  }
-
-  .notice-date {
-    font-size: 14px;
-    color: #0057b7;
-    font-weight: bold;
-    margin-bottom: 8px;
-    display: block;
-  }
-
-  .notice-text {
-    font-size: 16px;
-    color: #333;
-    line-height: 1.6;
-  }
-}
-
-
-
 </style>
 <Layout>
   <section>
     <div class="Catchphrase">
-      <h1>わからないこと、全部いっしょに。<br>Web制作、おまかせください。</h1>
+      <h1>わからないこと、全部いっしょに。<br />Web制作、おまかせください。</h1>
     </div>
     <div class="About_us">
       <h2>わたちたちについて</h2>
-      <p>はじめてWebサイトを作るときの不安を<br>
-        わたしたちは、そんな初めての方でも、気持ちに寄り添って、<br>
-        ひとつひとつ、わかりやすく・やさしくご案内します。<br>
-        あなたの「こうしたい」を大切にしながら、<br>
-        デザインも、構成も、いっしょに考えていく。<br>
-        Web制作がちょっと楽しくなる、そんな時間をつくっていきます。<br>
-        まずは、お話するところから。<br>
-        お気軽にご相談ください。<br>
+      <p>
+        はじめてWebサイトを作るときの不安を<br />
+        わたしたちは、そんな初めての方でも、気持ちに寄り添って、<br />
+        ひとつひとつ、わかりやすく・やさしくご案内します。<br />
+        あなたの「こうしたい」を大切にしながら、<br />
+        デザインも、構成も、いっしょに考えていく。<br />
+        Web制作がちょっと楽しくなる、そんな時間をつくっていきます。<br />
+        まずは、お話するところから。<br />
+        お気軽にご相談ください。<br />
       </p>
     </div>
     <div class="chara_card">
@@ -369,121 +375,123 @@ body{
       <Image src={Mippy} alt="ミッぴー" />
       <div class="chara_name">ミッピー</div>
       <p class="chara_text">
-        ぺんぎんは、わたしたちのチームのような存在。<br>
+        ぺんぎんは、わたしたちのチームのような存在。<br />
         みんなで協力し、お客様を大切にする心を表しています。
       </p>
     </div>
     <div class="back">
       <div class="section">
-      <h2>こんなお悩みはありませんか？</h2>
-      <div class="talk-area">
-        <div class="bubble">悩み1
-          <div class="senmon">
-            <p>専門用語ばかりでわかりにくそう?</p>
+        <h2>こんなお悩みはありませんか？</h2>
+        <div class="talk-area">
+          <div class="bubble">
+            <h3>悩み1</h3>
+            <div class="senmon">
+              <p>専門用語ばかりでわかりにくそう?</p>
+            </div>
+          </div>
+
+          <div class="bubble">
+            <h3>悩み2</h3>
+            <div class="senmon2">
+              <p>何から始めたら良いんだろう?</p>
+            </div>
           </div>
         </div>
-        
-        <div class="bubble">悩み2
-          <div class="senmon2">
-            <p>何から始めたら良いんだろう?</p>
-          </div>
-        </div>
-      </div>
-      <div class="main-message">
-        まずは、お問い合わせからなんでもご相談ください！<br />
-        私たちは、最初のご相談〜納品までサポートして、<br />
-        すべての流れを丁寧にご案内します！
-      </div>
-      <Image src={Mippy} alt="ミッピー" class="penguin" />
-      <div class="contact-btn">お問い合わせはこちら</div>
-      <div class="steps">
-        <p>まずはお気軽にご相談ください<br>「どんなサイトを作りたい」「どんなことを実現したい」<br>そんな想いを共有して、スタッフがご提案を用意します。</p>
-        <div class="step-number">1</div>
-        <div style="margin-top: 20px;">
-          <span class="arrow">⬅</span>
-          <span class="arrow">➡</span>
-        </div>
-      </div>
-      <div class="company">
-        <h3 class="title">会社のこと</h3>
-        <div>
-          <p class="memo">
-            お客様に親身に寄り添ったウェブサイトづくりを<br>
-            大切にしています。<br>
-            「こうしたい」を一緒に考えながら、ぴったりの<br>
-            カタチをご提案します。
-          </p>
+        <div class="main-message">
+          まずは、お問い合わせからなんでもご相談ください！<br />
+          私たちは、最初のご相談〜納品までサポートして、<br />
+          すべての流れを丁寧にご案内します！
         </div>
         <Image src={Mippy} alt="ミッピー" class="penguin" />
-        <div class="company-btn">会社のこと</div>
+        <div class="contact-btn">お問い合わせはこちら</div>
+        <div class="steps">
+          <p>
+            まずはお気軽にご相談ください<br
+            />「どんなサイトを作りたい」「どんなことを実現したい」<br
+            />そんな想いを共有して、スタッフがご提案を用意します。
+          </p>
+          <div class="step-number">1</div>
+          <div style="margin-top: 20px;">
+            <span class="arrow">⬅</span>
+            <span class="arrow">➡</span>
+          </div>
+        </div>
+        <div class="company">
+          <h3 class="title">会社のこと</h3>
+          <div>
+            <p class="memo">
+              お客様に親身に寄り添ったウェブサイトづくりを<br />
+              大切にしています。<br />
+              「こうしたい」を一緒に考えながら、ぴったりの<br />
+              カタチをご提案します。
+            </p>
+          </div>
+          <Image src={Mippy} alt="ミッピー" class="penguin" />
+          <div class="company-btn">会社のこと</div>
+        </div>
       </div>
-    </div>
-    <div class="case">
-      <h3 class="case_title">事例紹介</h3>
-      <div class="introduction">
-        <Image src={Jrei} alt="事例紹介" />
-        <Image src={Jrei2} alt="事例紹介2" />
-        <Image src={Jrei} alt="事例紹介" />
-        <Image src={Jrei2} alt="事例紹介2" />
+      <div class="case">
+        <h3 class="case_title">事例紹介</h3>
+        <Examples />
+        <div class="btn">
+          <a href="#" class="morebtn">もっと見る</a>
+        </div>
       </div>
-      <div  class="btn">
-        <a href="#" class="morebtn">もっと見る</a>
-      </div>
-    </div>
       <div class="question">
         <h2 class="qt">よくある質問</h2>
         <div class="flex">
-                    <div class="qa-card">
+          <div class="qa-card">
             <h4><span>Q.</span>どれくらいの期間で完成しますか？</h4>
             <p>
               <span>A.</span>
               サイトの規模にもよりますが、一般的な企業サイト（5～10ページ程度）の場合は、
-              ご契約から納品まで約1.5〜2ヶ月程度を目安としています。<br>
+              ご契約から納品まで約1.5〜2ヶ月程度を目安としています。<br />
               お急ぎの場合も対応可能ですので、まずはご相談ください！
             </p>
           </div>
-            <div class="qa-card">
-              <h4><span>Q.</span>どれくらいの期間で完成しますか？</h4>
-              <p>
-                <span>A.</span>
-                サイトの規模にもよりますが、一般的な企業サイト（5～10ページ程度）の場合は、
-                ご契約から納品まで約1.5〜2ヶ月程度を目安としています。<br>
-                お急ぎの場合も対応可能ですので、まずはご相談ください！
-              </p>
+          <div class="qa-card">
+            <h4><span>Q.</span>どれくらいの期間で完成しますか？</h4>
+            <p>
+              <span>A.</span>
+              サイトの規模にもよりますが、一般的な企業サイト（5～10ページ程度）の場合は、
+              ご契約から納品まで約1.5〜2ヶ月程度を目安としています。<br />
+              お急ぎの場合も対応可能ですので、まずはご相談ください！
+            </p>
           </div>
-            <div class="qa-card">
-              <h4><span>Q.</span>どれくらいの期間で完成しますか？</h4>
-              <p>
-                <span>A.</span>
-                サイトの規模にもよりますが、一般的な企業サイト（5～10ページ程度）の場合は、
-                ご契約から納品まで約1.5〜2ヶ月程度を目安としています。<br>
-                お急ぎの場合も対応可能ですので、まずはご相談ください！
-              </p>
+          <div class="qa-card">
+            <h4><span>Q.</span>どれくらいの期間で完成しますか？</h4>
+            <p>
+              <span>A.</span>
+              サイトの規模にもよりますが、一般的な企業サイト（5～10ページ程度）の場合は、
+              ご契約から納品まで約1.5〜2ヶ月程度を目安としています。<br />
+              お急ぎの場合も対応可能ですので、まずはご相談ください！
+            </p>
           </div>
         </div>
       </div>
-        <div class="notice_wrap">
-          <div class="notice-card">
-            <h2>お知らせ</h2>
-            <div class="notice-item">
-              <span class="notice-date">2025/4/24</span>
-              <p class="notice-text">
-                ゴールデンウィーク休暇は4月26日(土)〜5月6日(水)を休業とさせていただきます。
-              </p>
-            </div>
-            <div class="notice-item">
-              <span class="notice-date">2025/2/27</span>
-              <p class="notice-text">
-                マーケティングオートメーション（MA）ツール「SATORI」のパートナー企業になりました
-              </p>
-            </div>
-            <div class="notice-item">
-              <span class="notice-date">2025/2/27</span>
-              <p class="notice-text">
-                マーケティングオートメーション（MA）ツール「SATORI」のパートナー企業になりました
-              </p>
-            </div>
+      <div class="notice_wrap">
+        <div class="notice-card">
+          <h2>お知らせ</h2>
+          <div class="notice-item">
+            <span class="notice-date">2025/4/24</span>
+            <p class="notice-text">
+              ゴールデンウィーク休暇は4月26日(土)〜5月6日(水)を休業とさせていただきます。
+            </p>
+          </div>
+          <div class="notice-item">
+            <span class="notice-date">2025/2/27</span>
+            <p class="notice-text">
+              マーケティングオートメーション（MA）ツール「SATORI」のパートナー企業になりました
+            </p>
+          </div>
+          <div class="notice-item">
+            <span class="notice-date">2025/2/27</span>
+            <p class="notice-text">
+              マーケティングオートメーション（MA）ツール「SATORI」のパートナー企業になりました
+            </p>
           </div>
         </div>
+      </div>
+    </div>
   </section>
 </Layout>
